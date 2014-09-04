@@ -1,0 +1,13 @@
+{application, yatce,
+ [{description, "Yatce - Yet Another TokyoCabinet-Erlang binding."},
+  {vsn, "%VSN%"},
+  {modules,    [ yatce, yatce_sup, yatce_server ]},
+  {registered, [ yatce, yatce_sup, yatce_server ]},
+  {applications, [kernel, stdlib]},
+  {env, [
+   	 {prefix, "yatce"},
+	 {libdir, "./c_src"}
+	 ]},
+  {mod, {yatce, []}}
+  ]
+}.

@@ -1,0 +1,53 @@
+yatce - Yet Another Tokyo Cabinet Erlang binding
+
+* Abstract
+
+  For users who want to use Tokyo Cabinet from Erlang. 
+ Reads 'yatch`e' like 'match'. No messaging, nor context switch between 
+ the Linkedin driver and Erlang VM by using 'port_control' API.
+
+* Current Status 
+
+  Working well. But Erlang linkedin driver (say, port) said to be bottleneck,
+ But port_control runs in the same thread context with Erlang code. 
+ Simple performance test (written in porformer.erl) shows the result that,
+ insertion performance reaches 6500 qps, and lookup performance reaches 
+ 29000 qps; is this a row performance of Tokyo Cabinet? (I expect TC makes
+ much better performance)
+  
+  Currently, and Temporarily, it compiles in MacOSX and Debian 
+  (and somehow CentOS). See ebin/tctest.erl for sample programs.
+
+* Compilation
+  just do `make b` in top directory.
+
+
+* ROADMAP
+
+-all-option-support
+-all-operation-support
+-performance test (is port_control a really bottleneck?)
+-documentation (EDocize)
+-documentation
+-documentation :P
+-compatilibily in other environment: Linux, *BSD, Solaris. - badly done
+-autoconfize - pending
+
+* RELATED PROJECTS ...
+
+-Tokyo Cabinet - what I want to bind erlang with
+  http://tokyocabinet.sourceforge.net/
+
+-tcerl - Erlang port of Tokyo Cabinet
+  http://code.google.com/p/tcerl/
+  http://dukesoferl.blogspot.com/2008/06/tokyocabinet-and-mnesia.html
+
+* Interface
+
+ going to make compliant with tokyocabinet.idl (as much as I can)
+ see http://erlang.g.hatena.ne.jp/kuenishi/20090709/1247142432
+
+* License
+
+Dual license. You can choose either LGPLv3 or MIT license. See COPYING and
+COPYING.LESSER for LGPL, MIT-LICENSE for MIT license.

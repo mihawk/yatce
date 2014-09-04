@@ -1,0 +1,12 @@
+%% -*- coding: utf-8 -*-
+{'*', % 「すべてのモジュール」を意味するワイルドカード
+  % 以下にコンパイルオプション
+  [
+    {i, "../include"},  % -I ../include
+    {outdir, "../ebin"},% -o ../ebin
+  %  {d, debug},         % -Ddebug
+    {w, all},
+    debug_info          % +debug_info
+  ]
+}.
+%% http://d.hatena.ne.jp/m-hiyama/20071004/1191476041

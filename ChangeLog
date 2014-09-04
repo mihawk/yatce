@@ -1,0 +1,86 @@
+2009-11-20  UENISHI Kota  <kuenishi@gmail.com>
+
+	* src/yatce.erl (db): API changed;
+	 yatce:newdb/2 -> yatce:db/2
+	this API change aims at confirmation for users that API has changed.
+	versioned as 0.10.0 for new feature - application-ized.
+
+2009-09-10  UENISHI Kota  <kuenishi@gmail.com>
+
+	* src/yatce.erl (newdb): open options enabled.
+	don't do yatce:newdb/2, yet other open for same DB file 
+	and different options.	versioned as 0.9.1.
+
+2009-09-06  UENISHI Kota  <kuenishi@gmail.com>
+
+	* c_src/dispatcher.c (yatce_drv_control): most problems solved.
+	reason for memory leaking was here, not handling of hash_map
+	query failure. versioned as 0.9.0.
+
+2009-08-29  UENISHI Kota  <kuenishi@gmail.com>
+
+	* src/yatce.erl (start_link): timer:sleep/1 for waiting 
+	gen_server finishes gen_server:start_link/3, Module:init/1.
+	This is not intrinsic solution; versioned as 0.8.6.
+
+	* c_src/endecode.c (decode_key): all key/value types 
+	puttable! versioned as 0.8.5.
+
+2009-08-28  UENISHI Kota  <kuenishi@gmail.com>
+
+	* c_src/tc_table_operation.c (tc_rnum): tcadb:rnum/0, tcadb:size/0
+	implemented.
+
+	* src/yatce.erl (start): gen_server-ization done!
+	tests related to yatce passes at all!
+	versioned as 0.8.4
+
+2009-08-27  UENISHI Kota  <kuenishi@gmail.com>
+
+	* c_src/yatce_map.c (del_yatce_map): refactoring around 
+	C layer - table object hashed list done. versioned as 0.8.3
+
+2009-08-26  UENISHI Kota  <kuenishi@gmail.com>
+
+	* src/tcadb.erl (size): tcadb:path/0, tcadb:rnum/0, tcadb:size/0
+	implemented for version 0.8.2.
+
+2009-08-25  UENISHI Kota  <kuenishi@gmail.com>
+
+	* test/elementary_SUITE.erl (groups): elementary test for 
+	{hash|binary|fixed|table} databases passed! great!
+
+2009-08-24  UENISHI Kota  <kuenishi@gmail.com>
+
+	* c_src/tc_wrapper.c (tc_put): bugfix for comment-out mistake.
+
+2009-08-23  UENISHI Kota  <kuenishi@gmail.com>
+
+	* src/performer.erl (start): now `make perf` works.
+	easy performance test has been working.
+
+2009-08-21  UENISHI Kota  <kuenishi@gmail.com>
+
+	* test/tcadb_SUITE.erl (iterator): iterinit/iternext supported.
+	first elementary test and basic tcadb test passed.
+
+	* src/tcadb.erl (putcat): stop supporting tcadb:putcat/2
+	because result of concatinating Value depends on the types.
+
+2009-08-20  UENISHI Kota  <kuenishi@gmail.com>
+
+	* src/yatce.erl (newdb): adding type/spec according to EEP 08.
+
+2009-07-12  UENISHI Kota  <kuenishi@gmail.com>
+
+	* yatce: 0.7 released.
+
+	* c_src/dispatcher.c (yatce_drv_control): I was afraid of memory leaking,
+	tried some emory leak test. its result seems good: no memory leak looking at
+	'top' command, creating 2.6GB ADB file. Much more patters of operations
+	is to be tested, but there seems no architectural design failure.
+
+2009-06-07  UENISHI Kota  <kuenishi@gmail.com>
+
+	* src/tcadb.erl: version 0.5 tagged.
+
